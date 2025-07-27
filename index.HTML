@@ -64,6 +64,92 @@
             font-weight: 600;
         }
 
+        .business-hook {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .business-hook p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .metric:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffeb3b;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .metric-target {
+            font-size: 0.9rem;
+            color: #ffeb3b;
+            font-weight: 500;
+        }
+
+        .main-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .cta-button-secondary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button-secondary:hover {
+            background: white;
+            color: #27ae60;
+            transform: translateY(-3px);
+        }
+
         .hero-intro {
             max-width: 900px;
             margin: 0 auto 40px;
@@ -152,39 +238,92 @@
             border-radius: 2px;
         }
 
-        .offer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .offer-card {
+        .offer-summary {
             background: white;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            margin-bottom: 50px;
         }
 
-        .offer-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #667eea;
+        .offer-checklist {
+            display: grid;
+            gap: 20px;
         }
 
-        .offer-card i {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 20px;
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-left: 4px solid #27ae60;
+            background: #f8f9fa;
+            border-radius: 0 10px 10px 0;
         }
 
-        .offer-card h3 {
+        .checklist-item i {
+            color: #27ae60;
             font-size: 1.5rem;
-            margin-bottom: 15px;
+        }
+
+        .checklist-item:last-child {
+            border-left-color: #e74c3c;
+        }
+
+        .checklist-item:last-child i {
+            color: #e74c3c;
+        }
+
+        .pricing-table {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .pricing-table h3 {
+            text-align: center;
+            margin-bottom: 30px;
             color: #2c3e50;
+        }
+
+        .pricing-grid {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .pricing-grid th {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .pricing-grid td {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+
+        .pricing-grid tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .pricing-grid tr:hover {
+            background: rgba(39, 174, 96, 0.05);
+        }
+
+        .highlight-row {
+            background: rgba(39, 174, 96, 0.1) !important;
+            border-left: 4px solid #27ae60;
+        }
+
+        .highlight-row:hover {
+            background: rgba(39, 174, 96, 0.15) !important;
         }
 
         .process-visual {
@@ -355,24 +494,66 @@
             margin-top: 15px;
         }
 
-        .bot-demo {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
-            margin: 40px 0;
+        .bot-screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
         }
 
-        .bot-demo h3 {
-            font-size: 2rem;
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px dashed #27ae60;
+            border-radius: 20px;
+            padding: 40px 20px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-placeholder:hover {
+            transform: translateY(-5px);
+            border-color: #2ecc71;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .screenshot-placeholder i {
+            font-size: 3rem;
+            color: #27ae60;
             margin-bottom: 20px;
+        }
+
+        .screenshot-placeholder h4 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .screenshot-placeholder p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .bot-demo-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            border-radius: 20px;
+            color: white;
         }
 
         .demo-button {
             display: inline-block;
             background: white;
-            color: #667eea;
+            color: #27ae60;
             padding: 15px 30px;
             text-decoration: none;
             border-radius: 30px;
@@ -387,13 +568,91 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
+        .demo-note {
+            margin-top: 15px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .contact-option {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .contact-option:hover {
+            transform: translateY(-10px);
+            border-color: #27ae60;
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.2);
+        }
+
+        .option-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .contact-option h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-option p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .option-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
         .contact-form {
             background: white;
             padding: 50px;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 50px auto 0;
+        }
+
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 1.8rem;
         }
 
         .form-group {
@@ -496,121 +755,72 @@
             }
         }
 
-        .ecosystem-flow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
+        .network-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
             margin: 60px 0;
-            flex-wrap: wrap;
         }
 
-        .ecosystem-step {
+        .network-benefit {
             background: white;
-            padding: 40px 30px;
+            padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
-            flex: 1;
-            max-width: 300px;
-            min-width: 250px;
             transition: all 0.3s ease;
+            border: 3px solid transparent;
         }
 
-        .ecosystem-step:hover {
+        .network-benefit:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #27ae60;
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.2);
         }
 
-        .ecosystem-icon {
+        .network-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
             color: white;
         }
 
-        .ecosystem-step h4 {
+        .network-benefit h3 {
             font-size: 1.3rem;
+            color: #2c3e50;
             margin-bottom: 15px;
-            color: #2c3e50;
+            font-weight: 600;
         }
 
-        .ecosystem-step p {
+        .network-benefit p {
             color: #7f8c8d;
-            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        .ecosystem-benefits {
-            list-style: none;
-            padding: 0;
-        }
-
-        .ecosystem-benefits li {
-            padding: 8px 0;
-            color: #27ae60;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .ecosystem-benefits li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-        }
-
-        .ecosystem-arrow {
-            font-size: 2rem;
-            color: #667eea;
-            animation: pulse 2s infinite;
-        }
-
-        .visibility-dashboard {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 60px;
+        .network-cta {
             text-align: center;
+            margin-top: 60px;
+            padding: 50px;
+            background: linear-gradient(135f, #2c3e50 0%, #34495e 100%);
+            border-radius: 20px;
+            color: white;
         }
 
-        .visibility-dashboard h3 {
-            font-size: 1.8rem;
-            color: #2c3e50;
+        .network-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .network-cta p {
+            font-size: 1.1rem;
             margin-bottom: 30px;
-        }
-
-        .dashboard-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .dashboard-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .dashboard-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .dashboard-item i {
-            color: #667eea;
-            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
         .influencer-program {
@@ -688,7 +898,8 @@
             .steps,
             .advantages,
             .program-benefits-grid,
-            .process-visual {
+            .process-visual,
+            .contact-options {
                 grid-template-columns: 1fr;
             }
             
@@ -729,8 +940,30 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <div class="business-hook">
+                <p>🧩 <strong>Une solution clé en main pour générer du trafic qualifié, vendre du service et booster la rentabilité des garages de votre réseau.</strong></p>
+            </div>
             <h1>🧠 Le 1er assistant IA qui transforme les pannes moteur en clients qualifiés</h1>
             <p class="subtitle">Une nouvelle ère pour les réseaux de centres auto</p>
+            
+            <div class="key-metrics">
+                <div class="metric">
+                    <div class="metric-number">+25 000</div>
+                    <div class="metric-label">followers qualifiés</div>
+                    <div class="metric-target">→ Objectif 5M vues/mois</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">2 à 6%</div>
+                    <div class="metric-label">taux de conversion</div>
+                    <div class="metric-target">→ Jusqu'à 300 leads/mois</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">+300€</div>
+                    <div class="metric-label">CA moyen par lead</div>
+                    <div class="metric-target">→ ROI garanti</div>
+                </div>
+            </div>
+            
             <div class="hero-intro">
                 <p>Re-FAP a conçu une solution inédite pour générer du trafic qualifié vers vos centres :</p>
                 <div class="intro-points">
@@ -747,32 +980,74 @@
                         <span>Un modèle économique basé sur la performance : paiement au lead</span>
                     </div>
                 </div>
-                <p class="hero-tagline"><strong>Un voyant moteur ? L'IA s'en occupe. Vos garages encaissent.</strong></p>
+                <p class="hero-tagline"><strong>1 IA, 1 QR code, des clients motivés → Un nouveau flux de revenus pour votre réseau</strong></p>
             </div>
-            <a href="#contact" class="cta-button pulse">📞 Demander une présentation personnalisée</a>
+            
+            <div class="main-ctas">
+                <a href="#contact" class="cta-button pulse">📞 Demander une visio personnalisée</a>
+                <a href="https://julien-chatbot.vercel.app/" target="_blank" class="cta-button-secondary">🤖 Tester le chatbot Re-FAP</a>
+            </div>
         </div>
     </section>
 
     <!-- Offre Section -->
     <section class="section">
         <div class="container">
-            <h2>🔧 L'offre Re-FAP complète</h2>
-            <div class="offer-grid">
-                <div class="offer-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Machine</h3>
-                    <p>Une machine de nettoyage FAP ultra-performante, livrée avec ses accessoires</p>
+            <h2>🧰 L'offre Re-FAP complète</h2>
+            <div class="offer-summary">
+                <div class="offer-checklist">
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>1 machine de nettoyage FAP haut de gamme</strong></span>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>1 chatbot IA de diagnostic moteur</strong> (marque blanche possible)</span>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span><strong>1 système de génération automatique de leads</strong></span>
+                    </div>
+                    <div class="checklist-item">
+                        <i class="fas fa-plus-circle"></i>
+                        <span><strong>Accompagnement technique, marketing, et commercial</strong></span>
+                    </div>
                 </div>
-                <div class="offer-card">
-                    <i class="fas fa-robot"></i>
-                    <h3>IA de Diagnostic</h3>
-                    <p>Un chatbot IA de diagnostic auto, déjà opérationnel, intégrable en marque blanche</p>
-                </div>
-                <div class="offer-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Génération de Leads</h3>
-                    <p>Un système automatisé de génération de leads qualifiés vers vos centres</p>
-                </div>
+            </div>
+            
+            <div class="pricing-table">
+                <h3>💰 Tarification transparente</h3>
+                <table class="pricing-grid">
+                    <thead>
+                        <tr>
+                            <th>Élément</th>
+                            <th>Contenu</th>
+                            <th>Tarif HT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Machine FAP</strong></td>
+                            <td>Avec accessoires complets</td>
+                            <td><strong>13 517 €</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Abonnement chatbot</strong></td>
+                            <td>Diagnostic illimité + suivi</td>
+                            <td><strong>89 €/mois</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Paiement au lead</strong></td>
+                            <td>Jusqu'à X leads/mois inclus</td>
+                            <td><strong>À partir de 20 €/lead</strong></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Option revendeur</strong></td>
+                            <td>Commissions sur ventes réseau</td>
+                            <td><strong>Variable selon volume</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -857,85 +1132,42 @@
         </div>
     </section>
 
-    <!-- Écosystème -->
-    <section class="section">
+    <!-- Offre Réseau -->
+    <section class="section section-alt">
         <div class="container">
-            <h2>🌐 Un écosystème complet : Influenceurs → IA → Garages</h2>
-            <div style="text-align: center; margin-bottom: 60px;">
-                <p style="font-size: 1.2rem; color: #7f8c8d; max-width: 800px; margin: 0 auto;">
-                    Le bot Re-FAP est au cœur d'un dispositif global qui connecte les influenceurs automobile, l'intelligence artificielle et votre réseau de garages, avec une visibilité totale sur chaque étape.
-                </p>
-            </div>
-            
-            <div class="ecosystem-flow">
-                <div class="ecosystem-step">
-                    <div class="ecosystem-icon">
-                        <i class="fas fa-star"></i>
+            <h2>💼 Une offre pensée pour les réseaux de centres auto</h2>
+            <div class="network-benefits">
+                <div class="network-benefit">
+                    <div class="network-icon">
+                        <i class="fas fa-network-wired"></i>
                     </div>
-                    <h4>Influenceurs Partenaires</h4>
-                    <p>Réseau d'influenceurs automobile qui promeuvent le diagnostic IA</p>
-                    <ul class="ecosystem-benefits">
-                        <li>Commission sur chaque lead généré</li>
-                        <li>Contenu authentique et engageant</li>
-                        <li>Audience qualifiée automobile</li>
-                    </ul>
+                    <h3>Vous disposez d'un maillage national ?</h3>
+                    <p>On alimente vos centres en clients qualifiés grâce à notre IA de diagnostic.</p>
                 </div>
                 
-                <div class="ecosystem-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                
-                <div class="ecosystem-step">
-                    <div class="ecosystem-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="network-benefit">
+                    <div class="network-icon">
+                        <i class="fas fa-handshake"></i>
                     </div>
-                    <h4>IA de Diagnostic</h4>
-                    <p>Chatbot intelligent qui qualifie et oriente les prospects</p>
-                    <ul class="ecosystem-benefits">
-                        <li>Diagnostic précis en temps réel</li>
-                        <li>Qualification automatique des leads</li>
-                        <li>Traçabilité complète du parcours</li>
-                    </ul>
+                    <h3>Vous êtes franchiseur ?</h3>
+                    <p>On vous reverse une commission sur chaque lead généré pour vos affiliés.</p>
                 </div>
                 
-                <div class="ecosystem-arrow">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                
-                <div class="ecosystem-step">
-                    <div class="ecosystem-icon">
-                        <i class="fas fa-wrench"></i>
+                <div class="network-benefit">
+                    <div class="network-icon">
+                        <i class="fas fa-truck"></i>
                     </div>
-                    <h4>Votre Réseau</h4>
-                    <p>Garages partenaires qui reçoivent des clients qualifiés</p>
-                    <ul class="ecosystem-benefits">
-                        <li>Leads pré-qualifiés et motivés</li>
-                        <li>Géolocalisation précise</li>
-                        <li>Taux de conversion optimisé</li>
-                    </ul>
+                    <h3>Vous êtes distributeur ?</h3>
+                    <p>Vous vendez nos machines + notre abonnement IA à votre réseau existant.</p>
                 </div>
             </div>
             
-            <div class="visibility-dashboard">
-                <h3><i class="fas fa-chart-dashboard"></i> Visibilité totale en temps réel</h3>
-                <div class="dashboard-features">
-                    <div class="dashboard-item">
-                        <i class="fas fa-eye"></i>
-                        <span>Suivi des interactions influenceurs</span>
-                    </div>
-                    <div class="dashboard-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Analytics détaillés par source</span>
-                    </div>
-                    <div class="dashboard-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Géolocalisation des leads</span>
-                    </div>
-                    <div class="dashboard-item">
-                        <i class="fas fa-euro-sign"></i>
-                        <span>ROI par canal en temps réel</span>
-                    </div>
-                </div>
+            <div class="network-cta">
+                <h3>Développons ensemble votre réseau</h3>
+                <p>Chaque partenaire bénéficie d'un accompagnement personnalisé selon son modèle économique</p>
+                <a href="#contact" class="cta-button-large">
+                    📞 Discuter de votre projet réseau
+                </a>
             </div>
         </div>
     </section>
@@ -1031,18 +1263,43 @@
         </div>
     </section>
 
-    <!-- Demo Bot -->
-    <section class="section section-alt">
+    <!-- Bot Demo Section -->
+    <section class="section">
         <div class="container">
-            <div class="bot-demo">
-                <h3>🤖 Voir le chatbot Re-FAP en action</h3>
-                <p>Testez notre intelligence artificielle de diagnostic automobile</p>
+            <h2>🤖 Voici à quoi ressemble l'expérience utilisateur avec notre bot</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.2rem; color: #7f8c8d;">
+                Découvrez l'interface intuitive qui guide vos clients de la panne au rendez-vous
+            </p>
+            
+            <div class="bot-screenshots">
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Étape 1 : Diagnostic</h4>
+                        <p>Le client décrit ses symptômes</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-search"></i>
+                        <h4>Étape 2 : Analyse IA</h4>
+                        <p>L'IA identifie le problème</p>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Étape 3 : Redirection</h4>
+                        <p>Localisation du garage le plus proche</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bot-demo-cta">
                 <a href="https://julien-chatbot.vercel.app/" target="_blank" class="demo-button">
-                    <i class="fas fa-play"></i> Tester le bot
+                    <i class="fas fa-play"></i> Tester le bot en direct
                 </a>
-                <a href="https://re-fap.fr/plaquette-bot.pdf" target="_blank" class="demo-button">
-                    <i class="fas fa-download"></i> Télécharger la plaquette
-                </a>
+                <p class="demo-note">✨ <em>Essayez-le maintenant, c'est gratuit et sans engagement</em></p>
             </div>
         </div>
     </section>
@@ -1050,12 +1307,42 @@
     <!-- Contact Form -->
     <section class="section" id="contact">
         <div class="container">
-            <h2>📞 Demander une visio / un devis</h2>
+            <h2>📞 Choisissez votre prochaine étape</h2>
             <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #7f8c8d;">
-                Remplissez ce formulaire en 30 secondes, on vous recontacte !
+                3 options pour découvrir Re-FAP selon vos besoins
             </p>
             
-            <form class="contact-form" action="https://airtable.com/appGeEstBq3KYfqcq/pag38qGQuFNz7kzHz/form" method="POST">
+            <div class="contact-options">
+                <div class="contact-option">
+                    <div class="option-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Demander une visio personnalisée</h3>
+                    <p>Présentation complète de 30 min adaptée à votre réseau</p>
+                    <a href="#form" class="option-button">Programmer</a>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="option-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Tester le chatbot Re-FAP</h3>
+                    <p>Essayez notre IA de diagnostic en conditions réelles</p>
+                    <a href="https://julien-chatbot.vercel.app/" target="_blank" class="option-button">Tester maintenant</a>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="option-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Télécharger la documentation</h3>
+                    <p>Plaquette complète avec tarifs et spécifications techniques</p>
+                    <a href="https://re-fap.fr/plaquette-bot.pdf" target="_blank" class="option-button">Télécharger</a>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="form" action="https://airtable.com/appGeEstBq3KYfqcq/pag38qGQuFNz7kzHz/form" method="POST">
+                <h3>Formulaire de contact</h3>
                 <div class="form-group">
                     <label for="name">Prénom / Nom *</label>
                     <input type="text" id="name" name="name" required>
