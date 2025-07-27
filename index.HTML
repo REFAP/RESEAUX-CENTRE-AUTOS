@@ -131,6 +131,38 @@
             margin-top: 30px;
         }
 
+        .influencer-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #ffeb3b;
+            backdrop-filter: blur(10px);
+        }
+
+        .influencer-highlight p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .inline-link {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #ffeb3b;
+        }
+
+        .growth-note {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
         .cta-button-secondary {
             display: inline-block;
             background: transparent;
@@ -950,18 +982,26 @@
                 <div class="metric">
                     <div class="metric-number">+25 000</div>
                     <div class="metric-label">followers qualifiés</div>
-                    <div class="metric-target">→ Objectif 5M vues/mois</div>
+                    <div class="metric-target">→ Programme d'affiliation actif</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">2 à 6%</div>
-                    <div class="metric-label">taux de conversion</div>
-                    <div class="metric-target">→ Jusqu'à 300 leads/mois</div>
+                    <div class="metric-number">5M</div>
+                    <div class="metric-label">vues/mois visées</div>
+                    <div class="metric-target">→ Croissance exponentielle</div>
                 </div>
                 <div class="metric">
                     <div class="metric-number">+300€</div>
                     <div class="metric-label">CA moyen par lead</div>
                     <div class="metric-target">→ ROI garanti</div>
                 </div>
+            </div>
+            
+            <div class="influencer-highlight">
+                <p><i class="fas fa-rocket"></i> <strong>Programme d'affiliation influenceurs déjà en place :</strong> 
+                <a href="https://programme-influenceurs.re-fap.vercel.app/" target="_blank" class="inline-link">
+                Découvrir notre réseau d'influenceurs →
+                </a></p>
+                <p class="growth-note">Cette base de +25 000 followers nous permet de viser 5M de vues/mois d'ici quelques mois grâce à notre stratégie d'expansion.</p>
             </div>
             
             <div class="hero-intro">
@@ -1071,10 +1111,10 @@
                 
                 <div class="process-step">
                     <div class="process-icon">
-                        <i class="fas fa-qrcode"></i>
+                        <i class="fas fa-mouse-pointer"></i>
                     </div>
-                    <h4>Scan / Clic</h4>
-                    <p>Il scanne un QR code ou clique sur une pub</p>
+                    <h4>Accès direct</h4>
+                    <p>Il accède directement au chatbot via nos campagnes</p>
                 </div>
                 
                 <div class="process-arrow">
@@ -1172,47 +1212,7 @@
         </div>
     </section>
 
-    <!-- Programme Influenceurs -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2>🎬 Programme d'Affiliation Influenceurs</h2>
-            <div class="influencer-program">
-                <div class="program-intro">
-                    <h3>Rejoignez notre réseau d'influenceurs automobile</h3>
-                    <p>Monétisez votre audience avec notre système d'affiliation transparent et rémunérateur</p>
-                </div>
-                
-                <div class="program-benefits-grid">
-                    <div class="program-benefit">
-                        <i class="fas fa-percentage"></i>
-                        <h4>Commission attractive</h4>
-                        <p>Jusqu'à 15% de commission sur chaque lead converti en client</p>
-                    </div>
-                    <div class="program-benefit">
-                        <i class="fas fa-link"></i>
-                        <h4>Liens personnalisés</h4>
-                        <p>QR codes et liens uniques pour tracker vos performances</p>
-                    </div>
-                    <div class="program-benefit">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h4>Contenu clé en main</h4>
-                        <p>Visuels, vidéos et scripts prêts à publier</p>
-                    </div>
-                    <div class="program-benefit">
-                        <i class="fas fa-chart-bar"></i>
-                        <h4>Dashboard personnel</h4>
-                        <p>Suivi en temps réel de vos gains et performances</p>
-                    </div>
-                </div>
-                
-                <div class="influencer-cta">
-                    <a href="#contact" class="cta-button">Devenir influenceur partenaire</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Avantages Visuels -->
+    <!-- Pourquoi choisir Re-FAP -->
     <section class="section">
         <div class="container">
             <h2>🎯 Pourquoi choisir Re-FAP ?</h2>
@@ -1376,10 +1376,6 @@
                         <div class="checkbox-item">
                             <input type="checkbox" id="reseller" name="services" value="reseller">
                             <label for="reseller">Devenir revendeur</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="influencer" name="services" value="influencer">
-                            <label for="influencer">Rejoindre le programme influenceurs</label>
                         </div>
                     </div>
                 </div>
