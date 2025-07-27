@@ -17,10 +17,11 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            background: #f8f9fa;
         }
 
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -56,10 +57,52 @@
         }
 
         .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             opacity: 0.9;
             animation: fadeInUp 1s ease-out 0.2s both;
+            font-weight: 600;
+        }
+
+        .hero-intro {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .intro-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .intro-point {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .intro-point i {
+            font-size: 1.5rem;
+            color: #ffeb3b;
+            min-width: 30px;
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffeb3b;
+            margin-top: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .cta-button {
@@ -105,7 +148,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
             border-radius: 2px;
         }
 
@@ -144,66 +187,172 @@
             color: #2c3e50;
         }
 
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .step {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50%;
-            line-height: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .advantages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .advantage {
+        .process-visual {
             display: flex;
             align-items: center;
-            padding: 25px;
+            justify-content: center;
+            gap: 20px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+            padding: 40px 20px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .process-step {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            max-width: 150px;
+        }
+
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            color: white;
             transition: all 0.3s ease;
         }
 
-        .advantage:hover {
-            transform: translateX(10px);
+        .process-icon:hover {
+            transform: scale(1.1);
         }
 
-        .advantage i {
-            font-size: 2rem;
+        .process-step h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .process-step p {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+
+        .process-arrow {
+            font-size: 1.5rem;
             color: #27ae60;
-            margin-right: 20px;
-            min-width: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        .process-demo {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .process-demo i {
+            color: #27ae60;
+            margin-right: 10px;
+        }
+
+        .visual-advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .visual-advantage {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .visual-advantage:hover {
+            transform: translateY(-10px);
+            border-color: #27ae60;
+            box-shadow: 0 20px 40px rgba(39, 174, 96, 0.2);
+        }
+
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .visual-advantage h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .visual-advantage ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .visual-advantage li {
+            padding: 8px 0;
+            color: #7f8c8d;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .visual-advantage li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 60px 0;
+            padding: 50px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+        }
+
+        .cta-button-large {
+            display: inline-block;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.4);
+        }
+
+        .cta-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-top: 15px;
         }
 
         .bot-demo {
@@ -538,8 +687,19 @@
             .offer-grid,
             .steps,
             .advantages,
-            .program-benefits-grid {
+            .program-benefits-grid,
+            .process-visual {
                 grid-template-columns: 1fr;
+            }
+            
+            .process-visual {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .process-arrow {
+                transform: rotate(90deg);
+                margin: 5px 0;
             }
             
             .ecosystem-flow {
@@ -569,9 +729,27 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>🚀 L'IA qui transforme un voyant moteur en client payé</h1>
-            <p class="subtitle">Machine + Chatbot IA + Leads : le package Re-FAP, clé en main pour votre réseau</p>
-            <a href="#contact" class="cta-button pulse">Demander une démo</a>
+            <h1>🧠 Le 1er assistant IA qui transforme les pannes moteur en clients qualifiés</h1>
+            <p class="subtitle">Une nouvelle ère pour les réseaux de centres auto</p>
+            <div class="hero-intro">
+                <p>Re-FAP a conçu une solution inédite pour générer du trafic qualifié vers vos centres :</p>
+                <div class="intro-points">
+                    <div class="intro-point">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Une IA qui interagit en direct avec les automobilistes</span>
+                    </div>
+                    <div class="intro-point">
+                        <i class="fas fa-tools"></i>
+                        <span>Un chatbot qui identifie la panne et propose un RDV</span>
+                    </div>
+                    <div class="intro-point">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Un modèle économique basé sur la performance : paiement au lead</span>
+                    </div>
+                </div>
+                <p class="hero-tagline"><strong>Un voyant moteur ? L'IA s'en occupe. Vos garages encaissent.</strong></p>
+            </div>
+            <a href="#contact" class="cta-button pulse">📞 Demander une présentation personnalisée</a>
         </div>
     </section>
 
@@ -602,38 +780,79 @@
     <!-- Comment ça marche -->
     <section class="section section-alt">
         <div class="container">
-            <h2>🛠️ Comment ça marche ?</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Voyant moteur</h3>
-                    <p>Un client voit un voyant moteur s'allumer 🔥</p>
+            <h2>🔁 Comment ça fonctionne ?</h2>
+            <div class="process-visual">
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h4>Voyant moteur</h4>
+                    <p>Le client a un voyant moteur allumé</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Scan QR Code</h3>
-                    <p>Il scanne un QR code ou clique sur un lien vers notre chatbot 📲</p>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Diagnostic IA</h3>
-                    <p>Le chatbot identifie le problème moteur 🧠</p>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h4>Scan / Clic</h4>
+                    <p>Il scanne un QR code ou clique sur une pub</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Redirection</h3>
-                    <p>Il redirige vers un centre partenaire proche 📍</p>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
                 </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Prise de RDV</h3>
-                    <p>Le client prend RDV directement 🗓️</p>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Diagnostic IA</h4>
+                    <p>Le chatbot IA Re-FAP identifie la panne</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Lead tracé</h3>
-                    <p>Le lead est tracé et comptabilisé 💶</p>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
                 </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Solution proposée</h4>
+                    <p>Il recommande : nettoyage FAP, diag, entretien...</p>
+                </div>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Redirection</h4>
+                    <p>Il redirige vers un garage partenaire proche</p>
+                </div>
+                
+                <div class="process-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Client qualifié</h4>
+                    <p>Le RDV est pris – le garage reçoit un client qualifié</p>
+                </div>
+            </div>
+            
+            <div class="process-demo">
+                <p><i class="fas fa-play-circle"></i> <em>Découvrez le chatbot en action avec notre démo interactive</em></p>
             </div>
         </div>
     </section>
@@ -761,53 +980,53 @@
         </div>
     </section>
 
-    <!-- Avantages -->
+    <!-- Avantages Visuels -->
     <section class="section">
         <div class="container">
-            <h2>🎯 Les avantages pour votre réseau</h2>
-            <div class="advantages">
-                <div class="advantage">
-                    <i class="fas fa-euro-sign"></i>
-                    <div>
-                        <h4>Rémunération machine</h4>
-                        <p>Commission sur chaque machine vendue</p>
+            <h2>🎯 Pourquoi choisir Re-FAP ?</h2>
+            <div class="visual-advantages">
+                <div class="visual-advantage">
+                    <div class="advantage-icon">
+                        <i class="fas fa-bullseye"></i>
                     </div>
+                    <h3>Générer du trafic qualifié</h3>
+                    <ul>
+                        <li>Plus de clients motivés et locaux</li>
+                        <li>Leads pré-qualifiés par l'IA</li>
+                        <li>Géolocalisation précise</li>
+                    </ul>
                 </div>
-                <div class="advantage">
-                    <i class="fas fa-chart-line"></i>
-                    <div>
-                        <h4>Commission leads</h4>
-                        <p>Rémunération sur chaque lead qualifié</p>
+                
+                <div class="visual-advantage">
+                    <div class="advantage-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
+                    <h3>Se différencier par l'IA</h3>
+                    <ul>
+                        <li>Une IA sous votre marque, prête à l'emploi</li>
+                        <li>Diagnostic automobile instantané</li>
+                        <li>Image moderne et innovante</li>
+                    </ul>
                 </div>
-                <div class="advantage">
-                    <i class="fas fa-rocket"></i>
-                    <div>
-                        <h4>Image moderne</h4>
-                        <p>Valorisation de votre image tech & moderne</p>
+                
+                <div class="visual-advantage">
+                    <div class="advantage-icon">
+                        <i class="fas fa-coins"></i>
                     </div>
+                    <h3>Être payé à la performance</h3>
+                    <ul>
+                        <li>Commission sur chaque machine vendue</li>
+                        <li>Rémunération sur chaque lead qualifié</li>
+                        <li>ROI mesurable et transparent</li>
+                    </ul>
                 </div>
-                <div class="advantage">
-                    <i class="fas fa-magic"></i>
-                    <div>
-                        <h4>Zéro gestion</h4>
-                        <p>Aucune gestion : tout est automatisé</p>
-                    </div>
-                </div>
-                <div class="advantage">
-                    <i class="fas fa-box"></i>
-                    <div>
-                        <h4>Pack complet</h4>
-                        <p>Machine + IA + RDV inclus</p>
-                    </div>
-                </div>
-                <div class="advantage">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Plus d'appels</h4>
-                        <p>Flux d'appels entrants ciblés</p>
-                    </div>
-                </div>
+            </div>
+            
+            <div class="cta-section">
+                <a href="#contact" class="cta-button-large">
+                    📞 Demander une présentation personnalisée
+                </a>
+                <p class="cta-subtitle">Découvrez comment Re-FAP peut transformer votre réseau</p>
             </div>
         </div>
     </section>
@@ -928,7 +1147,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.offer-card, .step, .advantage, .ecosystem-step, .program-benefit').forEach(el => {
+        document.querySelectorAll('.offer-card, .step, .advantage, .ecosystem-step, .program-benefit, .process-step, .visual-advantage').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
