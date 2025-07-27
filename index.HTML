@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Re-FAP - L'IA qui transforme un voyant moteur en client payé</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2327ae60'/><text y='70' font-size='60' fill='white' text-anchor='middle' x='50'>R</text></svg>">
     <style>
         * {
             margin: 0;
@@ -917,7 +918,32 @@
             margin-top: 40px;
         }
 
-            @media (max-width: 768px) {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .logo-refap {
+                height: 40px;
+            }
+            
+            .header {
+                padding: 10px 0;
+            }
+            
+            .logo-refap {
+                height: 40px;
+            }
+            
+            .header {
+                padding: 10px 0;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -1341,7 +1367,7 @@
                 </div>
             </div>
             
-            <form class="contact-form" id="form" action="https://airtable.com/appGeEstBq3KYfqcq/pag38qGQuFNz7kzHz/form" method="POST">
+            <form class="contact-form" id="form" action="mailto:contact@re-fap.fr" method="POST" enctype="text/plain">
                 <h3>Formulaire de contact</h3>
                 <div class="form-group">
                     <label for="name">Prénom / Nom *</label>
@@ -1449,32 +1475,45 @@
             // Simple validation
             const name = formData.get('name');
             const email = formData.get('email');
+            const network = formData.get('network') || 'Non précisé';
             
             if (!name || !email) {
                 alert('Veuillez remplir tous les champs obligatoires.');
                 return;
             }
             
+            // Create email content
+            const emailSubject = `Nouvelle demande Re-FAP de ${name}`;
+            const emailBody = `Nouvelle demande depuis la landing page Re-FAP:
+
+Nom/Prénom: ${name}
+Email: ${email}
+Réseau/Enseigne: ${network}
+Services souhaités: ${services.length > 0 ? services.join(', ') : 'Non précisé'}
+
+---
+Demande envoyée depuis: ${window.location.href}
+Date: ${new Date().toLocaleString('fr-FR')}`;
+
+            // Create mailto link
+            const mailtoLink = `mailto:contact@re-fap.fr?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
             // Show success message
             const button = this.querySelector('.submit-button');
             const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i> Demande envoyée !';
+            button.innerHTML = '<i class="fas fa-check"></i> Ouverture de votre client email...';
             button.style.background = '#27ae60';
+            
+            // Open email client
+            window.location.href = mailtoLink;
             
             // Reset after 3 seconds
             setTimeout(() => {
                 button.innerHTML = originalText;
                 button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
                 this.reset();
+                alert('Votre client email devrait s\'ouvrir avec le message pré-rempli. Si ce n\'est pas le cas, envoyez votre demande directement à contact@re-fap.fr');
             }, 3000);
-            
-            // In a real implementation, you would send this data to your backend
-            console.log('Form data:', {
-                name: name,
-                email: email,
-                network: formData.get('network'),
-                services: services
-            });
         });
     </script>
 </body>
