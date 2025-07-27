@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-FAP - L'IA qui transforme un voyant moteur en client payé</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .offer-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .offer-card i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .offer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .advantage {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .advantage:hover {
+            transform: translateX(10px);
+        }
+
+        .advantage i {
+            font-size: 2rem;
+            color: #27ae60;
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        .bot-demo {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .bot-demo h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .demo-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .demo-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ecosystem-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .ecosystem-step {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .ecosystem-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .ecosystem-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .ecosystem-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .ecosystem-step p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .ecosystem-benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ecosystem-benefits li {
+            padding: 8px 0;
+            color: #27ae60;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .ecosystem-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .ecosystem-arrow {
+            font-size: 2rem;
+            color: #667eea;
+            animation: pulse 2s infinite;
+        }
+
+        .visibility-dashboard {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .visibility-dashboard h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .dashboard-item i {
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .influencer-program {
+            text-align: center;
+        }
+
+        .program-intro {
+            margin-bottom: 50px;
+        }
+
+        .program-intro h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .program-intro p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .program-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .program-benefit {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .program-benefit:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .program-benefit i {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .program-benefit h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .program-benefit p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .influencer-cta {
+            margin-top: 40px;
+        }
+
+            @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .offer-grid,
+            .steps,
+            .advantages,
+            .program-benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ecosystem-flow {
+                flex-direction: column;
+            }
+            
+            .ecosystem-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 L'IA qui transforme un voyant moteur en client payé</h1>
+            <p class="subtitle">Machine + Chatbot IA + Leads : le package Re-FAP, clé en main pour votre réseau</p>
+            <a href="#contact" class="cta-button pulse">Demander une démo</a>
+        </div>
+    </section>
+
+    <!-- Offre Section -->
+    <section class="section">
+        <div class="container">
+            <h2>🔧 L'offre Re-FAP complète</h2>
+            <div class="offer-grid">
+                <div class="offer-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Machine</h3>
+                    <p>Une machine de nettoyage FAP ultra-performante, livrée avec ses accessoires</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>IA de Diagnostic</h3>
+                    <p>Un chatbot IA de diagnostic auto, déjà opérationnel, intégrable en marque blanche</p>
+                </div>
+                <div class="offer-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Génération de Leads</h3>
+                    <p>Un système automatisé de génération de leads qualifiés vers vos centres</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2>🛠️ Comment ça marche ?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Voyant moteur</h3>
+                    <p>Un client voit un voyant moteur s'allumer 🔥</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Scan QR Code</h3>
+                    <p>Il scanne un QR code ou clique sur un lien vers notre chatbot 📲</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Diagnostic IA</h3>
+                    <p>Le chatbot identifie le problème moteur 🧠</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Redirection</h3>
+                    <p>Il redirige vers un centre partenaire proche 📍</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Prise de RDV</h3>
+                    <p>Le client prend RDV directement 🗓️</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Lead tracé</h3>
+                    <p>Le lead est tracé et comptabilisé 💶</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Écosystème -->
+    <section class="section">
+        <div class="container">
+            <h2>🌐 Un écosystème complet : Influenceurs → IA → Garages</h2>
+            <div style="text-align: center; margin-bottom: 60px;">
+                <p style="font-size: 1.2rem; color: #7f8c8d; max-width: 800px; margin: 0 auto;">
+                    Le bot Re-FAP est au cœur d'un dispositif global qui connecte les influenceurs automobile, l'intelligence artificielle et votre réseau de garages, avec une visibilité totale sur chaque étape.
+                </p>
+            </div>
+            
+            <div class="ecosystem-flow">
+                <div class="ecosystem-step">
+                    <div class="ecosystem-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Influenceurs Partenaires</h4>
+                    <p>Réseau d'influenceurs automobile qui promeuvent le diagnostic IA</p>
+                    <ul class="ecosystem-benefits">
+                        <li>Commission sur chaque lead généré</li>
+                        <li>Contenu authentique et engageant</li>
+                        <li>Audience qualifiée automobile</li>
+                    </ul>
+                </div>
+                
+                <div class="ecosystem-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="ecosystem-step">
+                    <div class="ecosystem-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4>IA de Diagnostic</h4>
+                    <p>Chatbot intelligent qui qualifie et oriente les prospects</p>
+                    <ul class="ecosystem-benefits">
+                        <li>Diagnostic précis en temps réel</li>
+                        <li>Qualification automatique des leads</li>
+                        <li>Traçabilité complète du parcours</li>
+                    </ul>
+                </div>
+                
+                <div class="ecosystem-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="ecosystem-step">
+                    <div class="ecosystem-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h4>Votre Réseau</h4>
+                    <p>Garages partenaires qui reçoivent des clients qualifiés</p>
+                    <ul class="ecosystem-benefits">
+                        <li>Leads pré-qualifiés et motivés</li>
+                        <li>Géolocalisation précise</li>
+                        <li>Taux de conversion optimisé</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="visibility-dashboard">
+                <h3><i class="fas fa-chart-dashboard"></i> Visibilité totale en temps réel</h3>
+                <div class="dashboard-features">
+                    <div class="dashboard-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Suivi des interactions influenceurs</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics détaillés par source</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Géolocalisation des leads</span>
+                    </div>
+                    <div class="dashboard-item">
+                        <i class="fas fa-euro-sign"></i>
+                        <span>ROI par canal en temps réel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Influenceurs -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2>🎬 Programme d'Affiliation Influenceurs</h2>
+            <div class="influencer-program">
+                <div class="program-intro">
+                    <h3>Rejoignez notre réseau d'influenceurs automobile</h3>
+                    <p>Monétisez votre audience avec notre système d'affiliation transparent et rémunérateur</p>
+                </div>
+                
+                <div class="program-benefits-grid">
+                    <div class="program-benefit">
+                        <i class="fas fa-percentage"></i>
+                        <h4>Commission attractive</h4>
+                        <p>Jusqu'à 15% de commission sur chaque lead converti en client</p>
+                    </div>
+                    <div class="program-benefit">
+                        <i class="fas fa-link"></i>
+                        <h4>Liens personnalisés</h4>
+                        <p>QR codes et liens uniques pour tracker vos performances</p>
+                    </div>
+                    <div class="program-benefit">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Contenu clé en main</h4>
+                        <p>Visuels, vidéos et scripts prêts à publier</p>
+                    </div>
+                    <div class="program-benefit">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>Dashboard personnel</h4>
+                        <p>Suivi en temps réel de vos gains et performances</p>
+                    </div>
+                </div>
+                
+                <div class="influencer-cta">
+                    <a href="#contact" class="cta-button">Devenir influenceur partenaire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="section">
+        <div class="container">
+            <h2>🎯 Les avantages pour votre réseau</h2>
+            <div class="advantages">
+                <div class="advantage">
+                    <i class="fas fa-euro-sign"></i>
+                    <div>
+                        <h4>Rémunération machine</h4>
+                        <p>Commission sur chaque machine vendue</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Commission leads</h4>
+                        <p>Rémunération sur chaque lead qualifié</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <i class="fas fa-rocket"></i>
+                    <div>
+                        <h4>Image moderne</h4>
+                        <p>Valorisation de votre image tech & moderne</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <i class="fas fa-magic"></i>
+                    <div>
+                        <h4>Zéro gestion</h4>
+                        <p>Aucune gestion : tout est automatisé</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <i class="fas fa-box"></i>
+                    <div>
+                        <h4>Pack complet</h4>
+                        <p>Machine + IA + RDV inclus</p>
+                    </div>
+                </div>
+                <div class="advantage">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Plus d'appels</h4>
+                        <p>Flux d'appels entrants ciblés</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Bot -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="bot-demo">
+                <h3>🤖 Voir le chatbot Re-FAP en action</h3>
+                <p>Testez notre intelligence artificielle de diagnostic automobile</p>
+                <a href="https://julien-chatbot.vercel.app/" target="_blank" class="demo-button">
+                    <i class="fas fa-play"></i> Tester le bot
+                </a>
+                <a href="https://re-fap.fr/plaquette-bot.pdf" target="_blank" class="demo-button">
+                    <i class="fas fa-download"></i> Télécharger la plaquette
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2>📞 Demander une visio / un devis</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #7f8c8d;">
+                Remplissez ce formulaire en 30 secondes, on vous recontacte !
+            </p>
+            
+            <form class="contact-form" action="https://airtable.com/appGeEstBq3KYfqcq/pag38qGQuFNz7kzHz/form" method="POST">
+                <div class="form-group">
+                    <label for="name">Prénom / Nom *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="network">Réseau ou enseigne</label>
+                    <input type="text" id="network" name="network" placeholder="Ex: Midas, Norauto, Indépendant...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Je souhaite :</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="callback" name="services" value="callback">
+                            <label for="callback">Être rappelé</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="visio" name="services" value="visio">
+                            <label for="visio">Programmer une visio</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="quote" name="services" value="quote">
+                            <label for="quote">Obtenir un devis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="reseller" name="services" value="reseller">
+                            <label for="reseller">Devenir revendeur</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="influencer" name="services" value="influencer">
+                            <label for="influencer">Rejoindre le programme influenceurs</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.re-fap.fr" target="_blank">Site officiel Re-FAP</a>
+                <a href="mailto:contact@re-fap.fr">contact@re-fap.fr</a>
+                <a href="https://re-fap.fr/plaquette-bot.pdf" target="_blank">Documentation PDF</a>
+            </div>
+            <p>&copy; 2025 Re-FAP – Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.offer-card, .step, .advantage, .ecosystem-step, .program-benefit').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const services = [];
+            formData.getAll('services').forEach(service => services.push(service));
+            
+            // Simple validation
+            const name = formData.get('name');
+            const email = formData.get('email');
+            
+            if (!name || !email) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            // Show success message
+            const button = this.querySelector('.submit-button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Demande envoyée !';
+            button.style.background = '#27ae60';
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                this.reset();
+            }, 3000);
+            
+            // In a real implementation, you would send this data to your backend
+            console.log('Form data:', {
+                name: name,
+                email: email,
+                network: formData.get('network'),
+                services: services
+            });
+        });
+    </script>
+</body>
+</html>
